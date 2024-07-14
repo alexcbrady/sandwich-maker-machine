@@ -37,9 +37,9 @@ def update(db: Session, sandwich_id, sandwich):
     # Return the updated order record
     return db_sandwich.first()
 
-def delete(db: Session, order_id):
+def delete(db: Session, sandwich_id):
     # Query the database for the specific order to delete
-    db_order = db.query(models.Sandwich).filter(models.Sandwich.id == order_id)
+    db_order = db.query(models.Sandwich).filter(models.Sandwich.id == sandwich_id)
     # Delete the database record without synchronizing the session
     db_order.delete(synchronize_session=False)
     # Commit the changes to the database
